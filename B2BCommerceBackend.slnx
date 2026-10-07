@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="B2BCommerce.Api/B2BCommerce.Api.csproj" />
+  <Project Path="B2BCommerce.Application/B2BCommerce.Application.csproj" />
+  <Project Path="B2BCommerce.Domain/B2BCommerce.Domain.csproj" />
+  <Project Path="B2BCommerce.Infrastructure/B2BCommerce.Infrastructure.csproj" />
+</Solution>
