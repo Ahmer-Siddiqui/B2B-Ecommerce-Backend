@@ -9,9 +9,12 @@
 | **Phase 1** | Catalog Entities (`Category`, `Product`) | ✅ Complete | Verified & Built |
 | **Phase 1** | Inventory & Stock Concurrency Entity | ✅ Complete | Verified & Built |
 | **Phase 1** | Order & OrderItem Entities & Status Enum | ✅ Complete | Verified & Built |
-| **Phase 1** | Phase 1 Domain Review & Summary | ⏳ In Progress | - |
-| **Phase 2** | EF Core Infrastructure Setup & DbContext | ⏸️ Pending | - |
-| **Phase 3** | Tenant Resolution Middleware & Global Query Filters | ⏸️ Pending | - |
+| **Phase 1** | Core Domain Modeling Complete | ✅ Complete | Verified & Built |
+| **Phase 2** | EF Core Packages & `ICurrentTenantService` | ✅ Complete | Verified & Built |
+| **Phase 2** | `B2BCommerceDbContext` & Global Query Filters | ✅ Complete | Verified & Built |
+| **Phase 2** | Fluent API Entity Configurations | ✅ Complete | Verified & Built |
+| **Phase 2** | Connection String & DbContext DI Wiring | ⏳ Up Next | - |
+| **Phase 2** | Initial Migration & Database Creation | ⏸️ Pending | - |
 | **Phase 4** | Product Catalog, Search & Dynamic Filtering | ⏸️ Pending | - |
 | **Phase 5** | Inventory Concurrency & Stock Locks | ⏸️ Pending | - |
 | **Phase 6** | Order Lifecycle & State Machine | ⏸️ Pending | - |
