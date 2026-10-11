@@ -13,9 +13,9 @@
 | **Phase 2** | EF Core Packages & `ICurrentTenantService` | ✅ Complete | Verified & Built |
 | **Phase 2** | `B2BCommerceDbContext` & Global Query Filters | ✅ Complete | Verified & Built |
 | **Phase 2** | Fluent API Entity Configurations | ✅ Complete | Verified & Built |
-| **Phase 2** | Connection String & DbContext DI Wiring | ⏳ Up Next | - |
-| **Phase 2** | Initial Migration & Database Creation | ⏸️ Pending | - |
-| **Phase 4** | Product Catalog, Search & Dynamic Filtering | ⏸️ Pending | - |
+| **Phase 2** | Connection String & DbContext DI Wiring | ✅ Complete | Verified & Built |
+| **Phase 2** | Initial Migration & Database Creation | ✅ Complete | Migration Applied & DB Created |
+| **Phase 3** | Tenant Resolution & Multi-Tenant Auth | ⏳ Up Next | - |
 | **Phase 5** | Inventory Concurrency & Stock Locks | ⏸️ Pending | - |
 | **Phase 6** | Order Lifecycle & State Machine | ⏸️ Pending | - |
 | **Phase 7** | Idempotency & Payments Abstraction | ⏸️ Pending | - |
