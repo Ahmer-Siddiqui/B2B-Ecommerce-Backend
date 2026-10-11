@@ -16,6 +16,6 @@ namespace B2BCommerce.Domain.Entities
         public UserRole Role { get; set; }
         public bool IsActive { get; set; } = true;
         public virtual Tenant Tenant { get; set; } = null!;
-
+        public virtual ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
     }
 }

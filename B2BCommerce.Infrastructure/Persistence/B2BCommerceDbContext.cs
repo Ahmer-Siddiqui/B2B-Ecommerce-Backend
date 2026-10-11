@@ -24,6 +24,7 @@ namespace B2BCommerce.Infrastructure.Persistence
         public DbSet<InventoryItem> InventoryItems => Set<InventoryItem>();
         public DbSet<Order> Orders => Set<Order>();
         public DbSet<OrderItem> OrderItems => Set<OrderItem>();
+        public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -54,6 +55,8 @@ namespace B2BCommerce.Infrastructure.Persistence
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(B2BCommerceDbContext).Assembly);
 
+            modelBuilder.Entity<RefreshToken>()
+                .HasQueryFilter(rt => rt.TenantId == _currentTenantService.TenantId && !rt.IsDeleted);
         }
 
 
