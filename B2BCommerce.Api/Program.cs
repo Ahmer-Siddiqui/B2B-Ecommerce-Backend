@@ -1,3 +1,7 @@
+using System.Text;
+using B2BCommerce.Infrastructure.Security;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using B2BCommerce.Api.Services;
 using B2BCommerce.Application.Common.Interfaces;
 using B2BCommerce.Infrastructure.Persistence;
@@ -39,6 +43,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 
@@ -46,7 +51,7 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication()
+app.UseAuthentication();
 
 app.UseAuthorization();
 
