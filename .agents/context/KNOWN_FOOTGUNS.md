@@ -19,3 +19,8 @@
 ### 5. Circular JSON Reference on Navigation Properties
 - **Trap:** `Order` points to `Customer`, and `Customer` has `List<Order>`. Serializing to JSON causes a runtime cyclical error or massive response explosion.
 - **Defense:** Never return EF Core entities directly from Controllers. Always project to DTOs.
+
+### 6. Multi-Tenant Refresh Token Resolution (`WHERE 0 = 1`)
+- **Trap:** `RefreshToken` implements `ITenantScopedEntity`. When client sends an unauthenticated `POST /api/auth/refresh` request without `X-Tenant-Id` or JWT, `CurrentTenantService.TenantId` is `null`. EF Core evaluates non-nullable `TenantId == null` as statically false, generating `WHERE 0 = 1` in SQL and failing valid refresh tokens!
+- **Defense:** Apply `.IgnoreQueryFilters()` in `AuthService.RefreshTokenAsync()` on `RefreshTokens`. The high-entropy refresh token itself securely identifies both the user and their tenant.
+

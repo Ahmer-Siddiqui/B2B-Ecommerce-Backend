@@ -1,6 +1,43 @@
-@B2BCommerce.Api_HostAddress = http://localhost:5001
+@HostAddress = https://localhost:7098
+@TenantId = 1
 
-GET {{B2BCommerce.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+### 1. Register New Tenant Admin (Unauthenticated -> Requires X-Tenant-Id)
+# @name register
+POST {{HostAddress}}/api/auth/register
+Content-Type: application/json
+X-Tenant-Id: {{TenantId}}
 
-###
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@acme.com",
+  "password": "Password123!",
+  "role": 2
+}
+
+### 2. Login (Requires X-Tenant-Id)
+# @name login
+POST {{HostAddress}}/api/auth/login
+Content-Type: application/json
+X-Tenant-Id: {{TenantId}}
+
+{
+  "email": "john.doe@acme.com",
+  "password": "Password123!"
+}
+
+### Capture Token from Login Response
+@accessToken = {{login.response.body.accessToken}}
+@refreshToken = {{login.response.body.refreshToken}}
+
+### 3. Get Current User Info (Authenticated with Bearer Token)
+GET {{HostAddress}}/api/auth/me
+Authorization: Bearer {{accessToken}}
+
+### 4. Refresh Token (Token Rotation)
+POST {{HostAddress}}/api/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
